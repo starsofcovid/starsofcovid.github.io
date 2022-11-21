@@ -734,7 +734,9 @@
                             </div>
             <div class="col-8">
                 <h2>These people have been involved with all selected organisations</h2>
-                <p>Not necessarily at the same time</p>
+                <h3>Notes</h3>
+                <p>The number in brackets beside each name indicates the number of organisations in this tool that
+                    person has been involved with.</p>
                 <div id="people-in-all-orgs">
                 </div>
             </div>
@@ -779,7 +781,8 @@
 
                 $('#people-in-all-orgs').html('')
                 for (i in selectedPeople) {
-                    $('#people-in-all-orgs').append($('<a style="display: block" href="/person_' + selectedPeople[i]['id'] + '.html"></a>').text(selectedPeople[i]['name']))
+                    let text = selectedPeople[i]['name'] + " (" + selectedPeople[i].organisations.length + ")"
+                    $('#people-in-all-orgs').append($('<a style="display: block" href="/person_' + selectedPeople[i]['id'] + '.html"></a>').text(text))
                 }
                 let hash = selectedOrgs.join("__");
                 window.location.hash = hash
